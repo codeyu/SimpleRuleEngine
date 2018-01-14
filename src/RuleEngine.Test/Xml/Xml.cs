@@ -240,7 +240,7 @@ namespace UnitTests
             x.ModelLookup += ModelLookup;
             x.Evaluate();
 
-            Assert.Equal(456, x.Value);
+            Assert.Equal(456d, x.Value);
             Assert.Equal(true, changed);
         }
 
@@ -286,7 +286,7 @@ namespace UnitTests
             x.ModelLookup += ModelLookup;
             x.Evaluate();
 
-            Assert.Equal(456, x.Value);
+            Assert.Equal(456d, x.Value);
             Assert.Equal(true, changed);
         }
 
@@ -332,7 +332,7 @@ namespace UnitTests
             x.ModelLookup += ModelLookup;
             x.Evaluate();
 
-            Assert.Equal(123, x.Value);
+            Assert.Equal(123d, x.Value);
             Assert.Equal(true, changed);
         }
 
@@ -378,7 +378,7 @@ namespace UnitTests
             x.ModelLookup += ModelLookup;
             x.Evaluate();
 
-            Assert.Equal(123, x.Value);
+            Assert.Equal(123d, x.Value);
             Assert.Equal(true, changed);
         }
 

@@ -26,7 +26,7 @@ namespace SpeedTest
         [STAThread]
         static void Main(string[] args)
         {
-            //IndividualFactTest();
+            IndividualFactTest();
             FactTest();
             //ClonedFactTest();
             Console.Write("Finished.. Press Return.");

@@ -8,8 +8,13 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
+  
   <ItemGroup>
-    <None Include="RuleFiles\**\*" CopyToPublishDirectory="Always" />
-    <!-- CopyToPublishDirectory = { Always, PreserveNewest, Never } -->
+    <None Update="RuleFiles\ChainedRules.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RuleFiles\RuleExample.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
