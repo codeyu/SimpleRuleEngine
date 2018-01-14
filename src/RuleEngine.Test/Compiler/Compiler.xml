@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<tests>
+
+  <test>
+    <comment>ensure all actions of a rule fire</comment>
+    <ruleset>../../Compiler/Action1.xml</ruleset>
+    <model modelId="bob">../../Compiler/Action1Model.xml</model>
+    <evaluate/>
+    <result factId="Result1">1</result>
+    <result factId="Result2">2</result>
+    <result factId="Result3">3</result>
+  </test>
+
+  <test>
+    <comment>chainable rules fire</comment>
+    <ruleset>../../Compiler/Chaining1.xml</ruleset>
+    <model modelId="bob">../../Compiler/Chaining1Model.xml</model>
+    <evaluate/>
+    <result factId="Result">True</result>
+  </test>
+
+  <test>
+    <comment>only chainable rules are added in as dependents</comment>
+    <ruleset>../../Compiler/Chaining2.xml</ruleset>
+    <model modelId="bob">../../Compiler/Chaining2Model.xml</model>
+    <evaluate/>
+    <result factId="Result">False</result>
+  </test>
+
+  <test>
+    <comment>non-chainable fire if executed</comment>
+    <ruleset>../../Compiler/Chaining3.xml</ruleset>
+    <model modelId="bob">../../Compiler/Chaining3Model.xml</model>
+    <evaluate/>
+    <result factId="Result">True</result>
+  </test>
+
+  <test>
+    <comment>read from multiple models</comment>
+    <ruleset>../../Compiler/Model1.xml</ruleset>
+    <model modelId="bob">../../Compiler/Model1aModel.xml</model>
+    <model modelId="joe">../../Compiler/Model1bModel.xml</model>
+    <evaluate/>
+    <result factId="Result">bobmodel</result>
+    <result factId="Result2">joemodel</result>
+  </test>
+
+  <test>
+    <comment>parsing a collection</comment>
+    <ruleset>../../Compiler/parsingCollection1.xml</ruleset>
+    <model modelId="bob">../../Compiler/ParsingCollection1Model.xml</model>
+    <evaluate/>
+    <result factId="Result">22</result>
+  </test>
+
+  <!--
+  <test>
+    <comment>ensure inference rules fire</comment>
+    <ruleset>../../Compiler/RuleSet3.xml</ruleset>
+    <model modelId="bob">../../Compiler/RuleSet3Model.xml</model>
+    <evaluate/>
+  </test>
+  -->
+  <!-- parse through xmlnodelist -->
+  <!-- transformation of nodeset -->
+  <!-- foreach method. foreach fact type must have a higher priority number than facts it must loop though, have a factLoopId and nextFactId. foreach type adds itself as clauseevidence if it should loop again-->
+  <!-- while loop. see above.-->
+  <!-- callbacks -->
+  <!-- transactional support http://msdn.microsoft.com/msdnmag/issues/05/12/transactions/default.aspx -->
+  <!-- working memory is from an xml document model that is accessable through the model property-->
+  <!-- string replacement ${xxx} in xpath expressions?-->
+  <!-- add and remove nodes to a model -->
+
+</tests>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+
+  <Rules>
+    <Rule id="Rule1" desc="" chainable="True"  priority="1">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions>
+        <Evaluate factId="F1"><![CDATA[ 1 ]]></Evaluate>
+        <Execute factId="Rule2"/>
+      </Actions>
+    </Rule>
+
+    <Rule id="Rule2" desc="" priority="100">
+      <!--this rule should by action fire-->
+      <Condition><![CDATA[ F1==1 ]]></Condition>
+      <Actions>
+        <Evaluate factId="Result"><![CDATA[ True ]]></Evaluate>
+      </Actions>
+    </Rule>
+  </Rules>
+
+  <Facts>
+    <Fact id="F1" desc="1" type="double" modelId="bob">
+      <xpath><![CDATA[ a/number1 ]]></xpath>
+    </Fact>
+    <Fact id="Result" desc="Result" type="boolean" modelId="bob">
+      <xpath><![CDATA[ a/result ]]></xpath>
+    </Fact>
+  </Facts>
+
+</RuleEngine>

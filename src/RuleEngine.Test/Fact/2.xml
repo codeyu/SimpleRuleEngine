@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <person>
+    <firstname>Joe</firstname>
+    <lastname>Miguel</lastname>
+    <address optional="true" pobox="false"></address>
+    <pin id="123">456</pin>
+    <dis>true</dis>
+    <!--comment-->
+    <personal><![CDATA[ ABCD ]]></personal>
+  </person>
+
+</root>

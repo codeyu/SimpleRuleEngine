@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+
+  <Rules>
+    <Rule id="Rule1" desc="" chainable="True"  priority="1">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions>
+        <Execute factId="Rule2"/>
+      </Actions>
+    </Rule>
+
+    <Rule id="Rule2" desc="" priority="100">
+      <!--ensure this rule by priority runs before rule1-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Evaluate factId="Result1"><![CDATA[ 1 ]]></Evaluate>
+        <Evaluate factId="Result2"><![CDATA[ 2 ]]></Evaluate>
+        <Evaluate factId="Result3"><![CDATA[ 3 ]]></Evaluate>
+      </Actions>
+    </Rule>
+  </Rules>
+
+  <Facts>
+    <Fact id="F1" desc="1" type="double" modelId="bob">
+      <xpath><![CDATA[ a/number1 ]]></xpath>
+    </Fact>
+
+    <Fact id="Result1" desc="Result" type="double" modelId="bob">
+      <xpath><![CDATA[ a/result1 ]]></xpath>
+    </Fact>
+    <Fact id="Result2" desc="Result" type="double" modelId="bob">
+      <xpath><![CDATA[ a/result2 ]]></xpath>
+    </Fact>
+    <Fact id="Result3" desc="Result" type="double" modelId="bob">
+      <xpath><![CDATA[ a/result3 ]]></xpath>
+    </Fact>
+  </Facts>
+
+</RuleEngine>

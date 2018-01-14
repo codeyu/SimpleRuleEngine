@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\RuleEngine\RuleEngine.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="RuleFiles\**\*" CopyToPublishDirectory="Always" />
+    <!-- CopyToPublishDirectory = { Always, PreserveNewest, Never } -->
+  </ItemGroup>
+</Project>

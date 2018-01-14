@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+
+  <Rules>
+    <Rule id="Rule1" desc="" chainable="True"  priority="1">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions>
+        <Evaluate factId="F1"><![CDATA[ 1 ]]></Evaluate>
+      </Actions>
+    </Rule>
+
+    <Rule id="Rule2" desc="" chainable="True" priority="1">
+      <!--ensure this rule by priority runs before rule1-->
+      <Condition><![CDATA[ F1==1 ]]></Condition>
+      <Actions Result="True">
+        <Evaluate factId="Result"><![CDATA[ bob ]]></Evaluate>
+        <Evaluate factId="Result2"><![CDATA[ joe ]]></Evaluate>
+      </Actions>
+    </Rule>
+  </Rules>
+
+  <Facts>
+    <Fact id="F1" desc="1" type="double" modelId="bob">
+      <xpath><![CDATA[ a/number1 ]]></xpath>
+    </Fact>
+    
+    <Fact id="bob" desc="1" type="string" modelId="bob">
+      <xpath><![CDATA[ 'bobmodel' ]]></xpath>
+    </Fact>
+    <Fact id="joe" desc="1" type="string" modelId="bob">
+      <xpath><![CDATA[ 'joemodel' ]]></xpath>
+    </Fact>
+    
+    <Fact id="Result" desc="Result" type="string" modelId="bob">
+      <xpath><![CDATA[ a/result ]]></xpath>
+    </Fact>
+    <Fact id="Result2" desc="Result" type="string" modelId="joe">
+      <xpath><![CDATA[ a/result ]]></xpath>
+    </Fact>
+  </Facts>
+
+</RuleEngine>

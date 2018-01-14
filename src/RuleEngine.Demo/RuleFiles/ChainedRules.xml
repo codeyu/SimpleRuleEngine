@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+  <Rules>
+    <Rule id="R1" desc="" chainable="True"  priority="1">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions>
+        <Evaluate factId="F1"><![CDATA[ false ]]></Evaluate>
+        <Execute factId="R2"/>
+      </Actions>
+    </Rule>
+
+    <Rule id="R2" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R3"/>
+      </Actions>
+    </Rule>
+
+    <Rule id="R3" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R4"/>
+      </Actions>
+    </Rule>
+    <Rule id="R4" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R5"/>
+      </Actions>
+    </Rule>
+    <Rule id="R5" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R6"/>
+      </Actions>
+    </Rule>
+    <Rule id="R6" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R7"/>
+      </Actions>
+    </Rule>
+    <Rule id="R7" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R8"/>
+      </Actions>
+    </Rule>
+    <Rule id="R8" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R9"/>
+      </Actions>
+    </Rule>
+    <Rule id="R9" desc="" priority="100">
+      <!--this rule should NEVER fire-->
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <Execute factId="R10"/>
+      </Actions>
+    </Rule>
+
+
+    <Rule id="R10" desc="credit score threshold">
+      <Condition><![CDATA[ R9 ]]></Condition>
+      <Actions Result="True">
+        <Evaluate factId="F1"><![CDATA[ true ]]></Evaluate>
+      </Actions>
+    </Rule>
+    
+  </Rules>
+  <Facts>
+    <Fact id="F1" desc="new value" type="boolean" modelId="bob">
+      <xpath><![CDATA[ a/result1 ]]></xpath>
+    </Fact>
+    <Fact id="F2" desc="old value" type="boolean" modelId="bob">
+      <xpath><![CDATA[ a/result2 ]]></xpath>
+    </Fact>
+  </Facts>
+</RuleEngine>

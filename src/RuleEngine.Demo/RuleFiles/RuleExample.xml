@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+
+  <Rules>
+    <Rule id="Rule1" desc="" Chainable="True">
+      <Condition><![CDATA[ NOT(FACT(F2)<FACT(F1)) ]]></Condition>
+      <Actions>
+        <!--Increment F2 until the statement is true and execute again-->
+        <Evaluate factId="F2"><![CDATA[ FACT(F2)+1 ]]></Evaluate>
+        <Execute factId="Rule2" />
+      </Actions>
+    </Rule>
+
+    <Rule id="Rule2" desc="">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions Result="True">
+        <!--Processing is complete, change value of result to true-->
+        <Evaluate factId="Result"><![CDATA[ FACT(True) ]]></Evaluate>
+      </Actions>
+    </Rule>
+
+  </Rules>
+
+  <Facts>
+    <Fact id="F1" desc="1" type="double" modelId="bob">
+      <xpath><![CDATA[ a/number1 ]]></xpath>
+    </Fact>
+    <Fact id="F2" desc="2" type="double" modelId="bob">
+      <xpath><![CDATA[ a/number2 ]]></xpath>
+    </Fact>
+    <Fact id="True" desc="True" type="boolean" modelId="bob">
+      <xpath><![CDATA[ boolean(1) ]]></xpath>
+    </Fact>
+    <Fact id="False" desc="False" type="boolean" modelId="bob">
+      <xpath><![CDATA[ boolean(0) ]]></xpath>
+    </Fact>
+    <Fact id="Result" desc="Result" type="boolean" modelId="bob">
+    </Fact>
+  </Facts>
+
+</RuleEngine>

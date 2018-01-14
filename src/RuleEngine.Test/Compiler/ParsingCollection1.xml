@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RuleEngine>
+  <!--items of higher priority execute first-->
+  <Rules>
+    <Rule id="Rule1" desc="" chainable="True"  priority="1">
+      <Condition><![CDATA[ 1==1 ]]></Condition>
+      <Actions>
+        <Evaluate factId="Position"><![CDATA[ 1 ]]></Evaluate>
+        <Evaluate factId="Result"><![CDATA[ 0 ]]></Evaluate>
+        <Execute factId="Rule2"/>
+      </Actions>
+    </Rule>
+
+    <Rule id="Rule2" desc="" priority="1">
+      <!--ensure this rule by priority runs before rule1-->
+      <Condition><![CDATA[ Position<=Count ]]></Condition>
+      <Actions>
+        <!--TODO: iterator is 1 based, so have result evaluated and then position increased-->
+        <Evaluate factId="Result" priority="2"><![CDATA[ Result+Iterator  ]]></Evaluate>
+        <Evaluate factId="Position" priority="1"><![CDATA[ Position+1 ]]></Evaluate>
+        <Execute factId="Rule2"/>
+      </Actions>
+    </Rule>
+  </Rules>
+
+  <Facts>
+    <Fact id="Result" desc="Result" type="double" modelId="bob">
+      <xpath><![CDATA[ a/result ]]></xpath>
+    </Fact>
+
+    <Fact id="Position" desc="Pos" type="double" modelId="bob">
+      <xpath><![CDATA[ a/position ]]></xpath>
+    </Fact>
+    <Fact id="Count" desc="Count" type="double" modelId="bob">
+      <xpath><![CDATA[ count(a/items//item) ]]></xpath>
+    </Fact>
+    <Fact id="Iterator" desc="iterator" type="double" modelId="bob">
+      <xpath><![CDATA[ number(a/items/item[ number(/a/position/text()) ]/@value) ]]></xpath>
+    </Fact>
+  </Facts>
+
+</RuleEngine>

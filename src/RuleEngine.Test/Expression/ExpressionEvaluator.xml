@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tests>
+  <Test>
+    <Comment>equal comparison</Comment>
+    <Condition><![CDATA[ F1==F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  
+  <Test>
+    <Comment>not equal</Comment>
+    <Condition><![CDATA[ NOT(F2==F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>not equal</Comment>
+    <Condition><![CDATA[ F2!=F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>not equal</Comment>
+    <Condition><![CDATA[ NOT(F1!=F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  
+  <Test>
+    <Comment>greater than</Comment>
+    <Condition><![CDATA[ F2>F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>greater than</Comment>
+    <Condition><![CDATA[ NOT(F1>F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>greater than</Comment>
+    <Condition><![CDATA[ NOT(F1>F2) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  
+  <Test>
+    <Comment>less than</Comment>
+    <Condition><![CDATA[ F1<F2 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>less than</Comment>
+    <Condition><![CDATA[ NOT(F1<F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>less than</Comment>
+    <Condition><![CDATA[ NOT(F2<F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>Greater than or equal</Comment>
+    <Condition><![CDATA[ F2>=F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>Greater than or equal</Comment>
+    <Condition><![CDATA[ F1>=F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>Greater than or equal</Comment>
+    <Condition><![CDATA[ NOT(F1>=F2) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>Less than or equal</Comment>
+    <Condition><![CDATA[ F1<=F2 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>Less than or equal</Comment>
+    <Condition><![CDATA[ F1<=F1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>Less than or equal</Comment>
+    <Condition><![CDATA[ NOT(F2<=F1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>Less than or equal</Comment>
+    <Condition><![CDATA[ NOT(F2<=0) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>AND</Comment>
+    <Condition><![CDATA[ NOT(False AND True) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND</Comment>
+    <Condition><![CDATA[ NOT(False AND False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>OR</Comment>
+    <Condition><![CDATA[ True OR True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>OR</Comment>
+    <Condition><![CDATA[ True OR False ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>OR</Comment>
+    <Condition><![CDATA[ False OR True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>OR</Comment>
+    <Condition><![CDATA[ NOT(False OR False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ True OR True AND True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ NOT(False OR True AND False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ NOT(False OR False AND True) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ False OR True AND True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ True OR False AND False ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR</Comment>
+    <Condition><![CDATA[ NOT(False OR False AND False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>AND OR ()</Comment>
+    <Condition><![CDATA[ (True OR True) AND True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR ()</Comment>
+    <Condition><![CDATA[ (False OR True) AND True ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR ()</Comment>
+    <Condition><![CDATA[ NOT((False OR False) AND True) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR ()</Comment>
+    <Condition><![CDATA[ NOT((True OR True) AND False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>AND OR ()</Comment>
+    <Condition><![CDATA[ NOT((False OR False) AND False) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+  <Test>
+    <Comment>expresion</Comment>
+    <Condition><![CDATA[ 1==1 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expression</Comment>
+    <Condition><![CDATA[ NOT(2==1) ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expresion</Comment>
+    <Condition><![CDATA[ "a"=="a" ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expression</Comment>
+    <Condition><![CDATA[ NOT("a"=="b") ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expresion</Comment>
+    <Condition><![CDATA[ 1+1==2 ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expression</Comment>
+    <Condition><![CDATA[ String=="String" ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expression</Comment>
+    <Condition><![CDATA[ NOT(String=="string") ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expresion</Comment>
+    <Condition><![CDATA[ String!="string" ]]></Condition>
+    <Result>true</Result>
+  </Test>
+  <Test>
+    <Comment>expression</Comment>
+    <Condition><![CDATA[ NOT(String!="String") ]]></Condition>
+    <Result>true</Result>
+  </Test>
+
+
+</Tests>
